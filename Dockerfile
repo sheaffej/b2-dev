@@ -7,7 +7,9 @@ ENV ROS_WS /ros
 ENV SVGA_VGPU10 0
 
 RUN apt update \
-&& apt install mesa-utils
+&& apt install -y \
+    mesa-utils \
+    ros-melodic-joy
 
 RUN echo '#!/bin/bash' > /entrypoint.sh \
 && echo 'source "/opt/ros/$ROS_DISTRO/setup.bash"' >> /entrypoint.sh \
@@ -32,5 +34,5 @@ RUN source "/opt/ros/$ROS_DISTRO/setup.bash" \
 && cd ${ROS_WS} \
 && catkin_make
 
-# ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "bash" ]
