@@ -6,9 +6,9 @@
 -->
 <launch>
 
-    <node name="joy_node" pkg="joy" type="joy_node"/>
+    <node name="joy_node" pkg="joy" type="joy_node" required="true" />
 
-    <node name="teleop_node" pkg="b2_dev" type="teleop_node.py">
+    <node name="teleop_node" pkg="b2_dev" type="teleop_node.py" required="true" >
         <param name="~max_linear" type="double" value="1.0"/>
         <param name="~max_angular" type="double" value="6.3"/>
         <param name="~cmd_vel" type="str" value="/cmd_vel"/>
