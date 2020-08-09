@@ -23,6 +23,7 @@ class TeleOpNode:
         self._node_name = node_name
         self._max_linear_speed = rospy.get_param("~max_linear", DEFAULT_MAX_LINEAR_SPEED)
         self._max_angular_speed = rospy.get_param("~max_angular", DEFAULT_MAX_ANGULAR_SPEED)
+        self._cmd_pub_hz = rospy.get_param("~cmd_pub_hz", DEFAULT_PUB_HZ)
 
         self._x_pct = 0.0
         self._z_pct = 0.0
@@ -43,7 +44,7 @@ class TeleOpNode:
         Publishes the Twist message at a rate of ~cmd_pub_hz.
         """
         rospy.loginfo("Running node")
-        looprate = rospy.Rate(rospy.get_param("~cmd_pub_hz", DEFAULT_PUB_HZ))
+        looprate = rospy.Rate(self._cmd_pub_hz)
 
         try:
             while not rospy.is_shutdown():
@@ -68,7 +69,7 @@ class TeleOpNode:
         with self._lock:
             self._x_pct = msg.axes[X_AXIS]
             self._z_pct = msg.axes[Y_AXIS]
-            rospy.logdebug("X: {}  |  Z: {}".format(self._x_pct, self._z_pct))
+            # rospy.logdebug("X: {}  |  Z: {}".format(self._x_pct, self._z_pct))
 
 
 if __name__ == "__main__":

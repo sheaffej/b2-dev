@@ -6,7 +6,9 @@
 -->
 <launch>
 
-    <node name="joy_node" pkg="joy" type="joy_node" required="true" />
+    <node name="joy_node" pkg="joy" type="joy_node" required="true">
+        <param name="~cmd_pub_hz" type="int" value="4" />
+    </node>
 
     <node name="teleop_node" pkg="b2_dev" type="teleop_node.py" required="true" >
         <param name="~max_linear" type="double" value="1.0"/>

@@ -21,6 +21,14 @@ RUN echo '#!/bin/bash' > /entrypoint.sh \
 
 RUN mkdir -p ${ROS_WS}/src
 
+# RUN cd ${ROS_WS}/src \
+# && git clone https://github.com/googlecartographer/cartographer_ros.git \
+# && cd cartographer_ros \
+# && git checkout tags/1.0.0
+# && rm -Rf cartographer_ros
+# && mv cartographer_ros_msgs ${ROS_WS}/src/ \
+# && mv cartographer_rviz ${ROS_WS}/src/
+
 RUN mkdir -p /root/b2_project \
 && cd /root/b2_project \
 && git clone https://github.com/sheaffej/b2-dev.git \
