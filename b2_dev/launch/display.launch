@@ -1,8 +1,8 @@
 <launch>
 
   <arg name="model" default="$(find b2_description)/urdf/b2.urdf" />
-  <arg name="rvizconfig" default="$(find b2_dev)/rqt/urdf.rviz" />
-  <arg name="rqtconfig" default="$(find b2_dev)/rqt/main.perspective" />
+  <arg name="rvizconfig" default="$(find b2_dev)/conf/urdf.rviz" />
+  <arg name="rqtconfig" default="$(find b2_dev)/conf/main.perspective" />
   <arg name="gui" default="false" />
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
