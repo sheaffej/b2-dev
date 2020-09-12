@@ -200,3 +200,8 @@ ffplay /dev/video0
 apt-get install -y ros-melodic-video-stream-opencv
 roslaunch video_stream_opencv camera.launch
 
+
+
+/ros/src/b2_slam_toolbox/map/b2-downstairs-map-serialized
+
+export LIBGL_ALWAYS_SOFTWARE=1
